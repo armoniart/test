@@ -7,7 +7,7 @@ import random
 
 # Получаем значения из переменных окружения
 TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = int(os.getenv("CHAT_ID"))
+CHAT_ID = (os.getenv("CHAT_ID"))
 RSS_URL = os.getenv("RSS_URL")
 
 # Имя файла для хранения списка отправленных ссылок
