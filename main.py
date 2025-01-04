@@ -4,6 +4,9 @@ import time
 import os
 import json
 import random
+from dotenv import load_dotenv
+
+load_dotenv()  # Загружаем переменные окружения из файла .env
 
 # Получаем значения из переменных окружения
 #TOKEN = "7822287020:AAFaKbpCpvXZKOvfQpdu5ndHXVrz42ghhAc"
