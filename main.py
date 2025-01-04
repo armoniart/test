@@ -6,9 +6,12 @@ import json
 import random
 
 # Получаем значения из переменных окружения
-TOKEN = "7822287020:AAFaKbpCpvXZKOvfQpdu5ndHXVrz42ghhAc"
-CHAT_ID = "-1002486445419"
-RSS_URL = "https://pikabu.ru/xmlfeeds.php?cmd=popular"
+#TOKEN = "7822287020:AAFaKbpCpvXZKOvfQpdu5ndHXVrz42ghhAc"
+#CHAT_ID = "-1002486445419"
+#RSS_URL = "https://pikabu.ru/xmlfeeds.php?cmd=popular"
+TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = int(os.getenv("CHAT_ID"))
+RSS_URL = os.getenv("RSS_URL")
 
 # Имя файла для хранения списка отправленных ссылок
 SENT_LINKS_FILE = "sent_links.json"
