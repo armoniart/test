@@ -1,4 +1,3 @@
-pip install telebot feedparser python-dotenv
 import telebot
 from feedparser import parse
 import time
