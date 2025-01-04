@@ -5,23 +5,14 @@ import os
 import json
 import random
 from dotenv import load_dotenv
-
 load_dotenv()  # Загружаем переменные окружения из файла .env
-
-# Получаем значения из переменных окружения
-#TOKEN = "7822287020:AAFaKbpCpvXZKOvfQpdu5ndHXVrz42ghhAc"
-#CHAT_ID = "-1002486445419"
-#RSS_URL = "https://pikabu.ru/xmlfeeds.php?cmd=popular"
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = (os.getenv("CHAT_ID"))
 RSS_URL = os.getenv("RSS_URL")
-
 # Имя файла для хранения списка отправленных ссылок
 SENT_LINKS_FILE = "sent_links.json"
-
 # Инициализация бота
 bot = telebot.TeleBot(TOKEN)
-
 # Загрузить список уже отправленных ссылок из файла
 try:
     with open(SENT_LINKS_FILE, "r") as file:
