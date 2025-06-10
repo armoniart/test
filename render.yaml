@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: my-fastapi
+    runtime: python          # нативный Python-рантайм
+    plan: free               # либо starter/pro/...
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION  # пример фиксации версии
+        value: 3.11
