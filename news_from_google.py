@@ -171,7 +171,7 @@ async def main():
                     await send_to_telegram(session, title, link)
                     sent_news.append({'title': title, 'link': link})
                     save_sent_news(sent_news)
-                await asyncio.sleep(random.randint(321, 555))  # От 30 минут до 1 часа
+                await asyncio.sleep(random.randint(1800, 3600))  # От 30 минут до 1 часа
 
 # Запуск асинхронного цикла
 if __name__ == "__main__":
