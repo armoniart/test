@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # Конфигурация
 PORT = int(os.environ.get('PORT', 10000))
-TOKEN = os.environ.get('BOT_TOKEN')
+TOKEN = os.environ.get('API_TOKEN')
 MAX_RESTART_ATTEMPTS = 3
 SCRIPTS = ["news_from_google.py", "news_from_yandex.py"]
 
