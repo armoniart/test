@@ -64,5 +64,20 @@ def main():
         logging.error(f'Непредвиденная ошибка: {e}')
         sys.exit(1)
 
+    # Получаем URL нашего сервиса на Render
+    # Render автоматически устанавливает переменную окружения RENDER_EXTERNAL_URL
+    webhook_url = os.environ.get('RENDER_EXTERNAL_URL') + '/webhook'
+    
+    # Устанавливаем webhook
+    updater.bot.setWebhook(webhook_url)
+    
+    # Запускаем сервер для приема webhooks
+    # Render использует порт из переменной окружения PORT
+    updater.start_webhook(
+        listen="0.0.0.0",
+        port=int(os.environ.get("PORT", 10000)),
+        webhook_url=webhook_url
+    )
+
 if __name__ == "__main__":
     main()
