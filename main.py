@@ -3,6 +3,8 @@ import time
 import logging
 import sys
 
+PORT = int(os.environ.get('PORT', 10000))  # Render использует PORT, по умолчанию 10000
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Maximum number of restart attempts
@@ -64,20 +66,16 @@ def main():
         logging.error(f'Непредвиденная ошибка: {e}')
         sys.exit(1)
 
-    # Получаем URL нашего сервиса на Render
-    # Render автоматически устанавливает переменную окружения RENDER_EXTERNAL_URL
-    webhook_url = os.environ.get('RENDER_EXTERNAL_URL') + '/webhook'
+    # Настройка webhook
+    webhook_url = f"https://{os.environ.get('RENDER_EXTERNAL_HOSTNAME')}/webhook"
+    updater.bot.set_webhook(webhook_url)
     
-    # Устанавливаем webhook
-    updater.bot.setWebhook(webhook_url)
-    
-    # Запускаем сервер для приема webhooks
-    # Render использует порт из переменной окружения PORT
+    # Запуск сервера
     updater.start_webhook(
-        listen="0.0.0.0",
-        port=int(os.environ.get("PORT", 10000)),
+        listen="0.0.0.0",  # Важно: слушаем все интерфейсы
+        port=PORT,         # Используем порт из переменной окружения
+        url_path=TOKEN,    # Путь для webhook
         webhook_url=webhook_url
     )
-
 if __name__ == "__main__":
     main()
