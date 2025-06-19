@@ -3,3 +3,5 @@ beautifulsoup4
 aiohttp
 brotli
 python-telegram-bot
+fastapi
+uvicorn
