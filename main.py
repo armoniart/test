@@ -2,6 +2,7 @@ import subprocess
 import time
 import logging
 import sys
+import os
 
 PORT = int(os.environ.get('PORT', 10000))  # Render использует PORT, по умолчанию 10000
 
