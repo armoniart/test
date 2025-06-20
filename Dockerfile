@@ -1,8 +1,1 @@
-FROM python:3
-WORKDIR /app
-COPY . .
-RUN pip install requests
-RUN pip install beautifulsoup4
-RUN pip install aiohttp
-RUN pip install brotli
-CMD ["python", "main.py"]
+
